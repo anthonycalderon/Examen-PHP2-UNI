@@ -8,8 +8,8 @@
 <body>
 <table width="600" border="1">
   <tr>
-    <td>Agregar Alumno </td>
-    <td>Agregar Curso </td>
+    <td><a href="AgregarAlumno.php">Agregar Alumno</a> </td>
+    <td><a href="AgregarCurso.php">Agregar Curso </a></td>
     <td><a href="matricular.php">Matricular</a></td>
     <td><a href="promedio_ingresar.php">Ingresar Notas </a></td>
   </tr>
