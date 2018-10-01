@@ -10,6 +10,6 @@ $cfg['t']="mysql";
 $cfg['h']="localhost";
 $cfg['u']="root";
 $cfg['p']="";
-$cfg['b']="php2";
+$cfg['b']="php2examen";
 
 ?>
