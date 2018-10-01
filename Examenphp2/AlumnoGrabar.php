@@ -12,7 +12,7 @@ $c=$_POST['txtFnac'];
 
 
 $sql="insert into alumnos(apellidos,nombre,fnac) 
-	values('$a','$b','$c)";
+	values('$a','$b','$c')";
 
 $exito=$basesita->ejecutar($sql);
 echo $exito;
@@ -23,3 +23,4 @@ if($exito){
 	echo "Error al procesar $sql !!";
 	echo "<a href='reporte.php'>Regresar</a>";
 }
+?>

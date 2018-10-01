@@ -1,8 +1,34 @@
 <?php
+include_once('classBase.php');
+$basesita=new bd_base;
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
+	$nom='';
+	$est='';
+	
+	
+
+
+?>
+
+<html>
+<head>
+	<title>Agregar Curso</title>
+</head>
+
+<body>
+
+<form name="X" method="post" action="CursoGrabar.php">
+	
+        
+	Nombre:<input type="text" name="txtNombre" value="<?= $nom?>"><br/>
+	Estado:<input type="text" name="txtEstado" value="<?= $est?>"><br/>
+       
+	
+        
+	
+	<input type="submit" name="btnGrabar" value="Grabar">
+</form>
+</body>
+
+</html>
