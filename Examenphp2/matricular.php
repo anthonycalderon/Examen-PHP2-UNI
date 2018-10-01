@@ -1,40 +1,40 @@
-<?php
-include_once('classBase.php');
-$basesita=new bd_Base;
-$sql="select * from alumnos";
-$datos=$basesita->consultar($sql);
 
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <meta charset="utf-8">
+	
+	<script src="js/combos.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Untitled Document</title>
 </head>
 
 <body>
-<form id="form1" name="form1" method="post" action="">
+<form id="" name="form1" method="post" action="guardar_matricula.php">
+   <a href="#" onclick="matricula();">Cargar Datos Matricula</a>
   <table width="400" border="1">
     <tr>
-      <td colspan="2">Matricular</td>
+      <td colspan="2">Matricular </td>
     </tr>
     <tr>
       <td>Alumno</td>
       <td><label>
-        <select name="select">
-          <option value="1">Alumno 1</option>
-          <option value="2">Alumno 2</option>
-        </select>
+              <div id="divalum">
+				<select name="cboalum" id="cboalum"></select>
+				</div>
+      
       </label></td>
     </tr>
     <tr>
       <td>Curso</td>
       <td><label>
-        <select name="select2">
-          <option value="1">Curso 1</option>
-          <option value="2">Curso 2</option>
-        </select>
+        
+              <div id="divcur">
+					<select name="cbocur" id="cbocur"></select>
+				</div>
+              
       </label></td>
     </tr>
     <tr>
@@ -50,35 +50,3 @@ $datos=$basesita->consultar($sql);
 </form>
 </body>
 </html>
-<?php
-$tipo=isset($_GET['tipo'])?$_GET['tipo']:'dpto';
-//	a	?   b     :  c   Operador ternario
-$dpto= isset($_GET['dpto'])?$_GET['dpto']:'' ;
-$prov= isset($_GET['prov'])?$_GET['prov']:'';
-
-switch($tipo){
-	case 'dpto':
-		$sql="select dpto as cod,nombre from ubigeo where dpto<>'00' and prov='00' and dist='00'";
-		$funcion="onchange=\"provincias();\"";
-		break;
-	case 'prov':
-		$sql="select prov as cod,nombre from ubigeo where dpto='$dpto' and prov<>'00' and dist='00'";
-		$funcion="onchange=\"distritos();\"";
-		break;
-	case 'dist':
-		$sql="select dist as cod,nombre from ubigeo where dpto='$dpto' and prov='$prov' and dist<>'00'";
-		$funcion="";
-		break;
-}
-
-$cnx=mysqli_connect('localhost','root','','ubigeo');
-$bolsa=mysqli_query($cnx,$sql);
-
-
-echo "<select name=cbo$tipo id=cbo$tipo $funcion >\n";
-echo "<option value='00'>Selecciona</option>";
-while($fila=mysqli_fetch_assoc($bolsa)){
-	echo "<option value='".$fila['cod']  ."'>" . $fila['nombre']. "</option>\n";
-}
-echo "</select>\n";
-?>

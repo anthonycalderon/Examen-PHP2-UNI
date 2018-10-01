@@ -1,33 +1,21 @@
-function departamentos(){
-    $.get('ubigeo.php',
-    {tipo: 'dpto'},
+function matricula(){
+    $.get('matricular_alumno.php',
+    {tipo: 'alum'},
     function(rpta){
-        $('#divdpto').html(rpta);
+        $('#divalum').html(rpta);
     }
     )
 }
 
-function provincias(){
-    $.get('ubigeo.php',
+function curso(){
+    $.get('matricular_alumno.php',
     {
-	 tipo: 'prov',
-     dpto: $('#cbodpto').val()
+	 tipo: 'cur',
+     dpto: $('#cbocur').val()
 	 },
     function(rpta){
-        $('#divprov').html(rpta);
+        $('#divcur').html(rpta);
     }
     )
 }
 
-function distritos(){
-    $.get('ubigeo.php',
-    {
-        tipo: 'dist',
-        dpto: $('#cbodpto').val(),
-        prov: $('#cboprov').val()
-        },
-    function(rpta){
-        $('#divdist').html(rpta);
-    }
-    )
-}
