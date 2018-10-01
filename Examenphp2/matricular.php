@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<form id="" name="form1" method="post" action="guardar_matricula.php">
+<form id="" name="" method="post" action="guardar_matricula.php">
    <a href="#" onclick="matricula();">Cargar Datos Matricula</a>
   <table width="400" border="1">
     <tr>

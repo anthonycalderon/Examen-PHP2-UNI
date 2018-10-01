@@ -1,4 +1,6 @@
 <?php
+include_once('classBase.php');
+$basesita=new bd_Base;
 $tipo=isset($_GET['tipo'])?$_GET['tipo']:'alum';
 $alum= isset($_GET['dpto'])?$_GET['dpto']:'' ;
 switch($tipo){
@@ -12,13 +14,17 @@ switch($tipo){
             break;
 
 }
+/*
 $cnx=mysqli_connect('localhost','root','','php2examen');
-$bolsa=mysqli_query($cnx,$sql);           
-            
+$bolsa=mysqli_query($cnx,$sql);        */   
+            $datos=$basesita->consultar($sql);
 echo "<select name=cbo$tipo id=cbo$tipo $funcion >\n";
 echo "<option value='00'>Selecciona</option>";
-while($fila=mysqli_fetch_assoc($bolsa)){
+/*while($fila=mysqli_fetch_assoc($bolsa)){
 	echo "<option value='".$fila['id']  ."'>" . $fila['nombre']. "</option>\n";
+}*/
+foreach ($datos as $y){
+    echo "<option value='".$y['id']  ."'>" . $y['nombre']. "</option>\n";
 }
 echo "</select>\n";
 /*
