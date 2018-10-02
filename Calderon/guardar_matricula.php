@@ -12,8 +12,6 @@ if($a==''){
 	values('$a','$b')";
 }
 $exito=$basesita->ejecutar($sql);
-echo $exito;
-
 if($exito){
 	header('location: reporte.php');
 }else{

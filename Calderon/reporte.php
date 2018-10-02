@@ -22,21 +22,33 @@ $datos=$basesita->consultar($sql);
   </tr>
 </table>
 
-<table width="600" border="1">
-  <tr>
-    <td>#</td>
-    <td>Apellidos</td>
-    <td>Nombre</td>
-    <td>Curso</td>
-    <td>Promedio</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>Rojas</td>
-    <td>Jaimito</td>
-    <td>PHP 0 </td>
-    <td>13.5</td>
-  </tr>
+<table width="750" border="1">
+    	<tr>
+		<td>#</td>
+		<td>Nombres</td>
+		<td>Apellidos</td>
+		<td>Curso</td>
+                <td>Nota 1</td>
+                <td>Nota 2</td>
+                <td>Nota 3</td>
+		<td>Promedio</td>
+                <td>OPCION</td>
+                
+	</tr>
+ <?php foreach($datos as $y){ ?>	
+	<tr>
+		<td><?= $y['idPromedio'] ?></td>
+		<td><?= $y['nombreAlumno']?></td>
+		<td><?= $y['apellidos']?></td>
+		<td><?= $y['nombreCurso']?></td>
+                <td><?= $y['Nota1']?></td>
+                  <td><?= $y['Nota2']?></td>
+                    <td><?= $y['Nota3']?></td>
+		<td><?= $y['promedio']?></td>
+                <td border=""><a href="reporte_Edit.php?elegido=<?= $y['idPromedio'] ?>">Editar</a>
+		<!--<a href="borrar.php?elegido=<?= $y['id'] ?>" onclick="return confirm('Seguro de borrar?')">Borrar</a></td>-->
+	</tr>	
+<?php } ?>
 </table>
 <table width="600" border="1">
   <tr>

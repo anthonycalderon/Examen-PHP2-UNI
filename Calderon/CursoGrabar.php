@@ -8,9 +8,6 @@ $basesita=new bd_base;
 $a=$_POST['txtNombre'];
 $b=$_POST['txtEstado'];
 
-
-
-
 $sql="insert into cursos(nombre,estado) 
 	values('$a','$b')";
 
