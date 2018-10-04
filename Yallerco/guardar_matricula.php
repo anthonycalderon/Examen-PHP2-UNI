@@ -6,11 +6,12 @@ $a=$_POST['cboalum'];
 $b=$_POST['cbocur'];
 
 
-if($a==''){
+
+
 	//alumno nuevo
 	$sql="insert into promedios(id_alumno,id_curso) 
 	values('$a','$b')";
-}
+
 $exito=$basesita->ejecutar($sql);
 echo $exito;
 
@@ -20,5 +21,4 @@ if($exito){
 	echo "Error al procesar $sql !!";
 	echo "<a href='matricular.php'>Regresar</a>";
 }
-
 ?>

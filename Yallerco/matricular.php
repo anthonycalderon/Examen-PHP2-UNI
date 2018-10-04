@@ -39,7 +39,7 @@
     </tr>
     <tr>
       <td colspan="2"><label>
-        <input name="Grabar" type="submit" id="Grabar" value="Submit" />
+        <input name="Grabar" type="submit" id="Grabar" value="Guardar" />
       </label></td>
     </tr>
     <tr>

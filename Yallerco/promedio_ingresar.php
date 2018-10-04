@@ -1,36 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Untitled Document</title>
-</head>
+<?php
 
-<body>
-<form id="form1" name="form1" method="post" action="">
-  <table width="400" border="1">
-    <tr>
-      <td colspan="2" bgcolor="#996600">Ingresar Promedio </td>
-    </tr>
-    <tr>
-      <td>Alumno</td>
-      <td>Juan Rojas </td>
-    </tr>
-    <tr>
-      <td>Curso</td>
-      <td>PHP 0 </td>
-    </tr>
-    <tr>
-      <td>Promedio</td>
-      <td><label>
-        <input type="text" name="textfield" />
-      </label></td>
-    </tr>
-    <tr>
-      <td colspan="2"><label>
-        <input name="Grabar" type="submit" id="Grabar" value="Submit" />
-      </label></td>
-    </tr>
-  </table>
-</form>
-</body>
-</html>
+$bolsa=null;
+include_once('classBase.php');
+$basesita = new bd_Base;
+$sql = "SELECT p.id, a.nombre, a.apellidos, c.nombre, p.promedio
+FROM alumnos a INNER JOIN cursos c 
+ON a.id = c.id
+INNER JOIN promedios p
+ON p.id = a.id";
+
+$datos = $basesita->consultar($sql);
+
+
+?>
+
+
+
+<table border=1>
+	<tr>
+		<td>Id</td>
+		<td>Apellidos</td>
+		<td>Nombres</td>
+		<td>Curso</td>
+		<td>Promedio</td>
+                <td>Editar</td>
+		
+	</tr>
+<?php foreach($datos as $y){ ?>	
+	<tr>
+		<td><?= $y['id'] ?></td>
+		<td><?php echo $y['apellidos']?></td>
+		<td><?= $y['nombre']?></td>
+		<td><?= $y['nombre']?></td>  <!--nombre de curso -->
+		<td><?= $y['promedio']?></td>
+                <td><a href="guardarPromedio.php?elegido=<?= $y['id'] ?>">Editar</a></td>
+               
+		
+	</tr>	
+<?php } ?>	
+</table>
+
+<a href="guardarPromedio.php">Guardar Notas</a><br/>
+
+
+
+
